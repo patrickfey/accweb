@@ -86,11 +86,11 @@ func loadAccWebConfig(baseDir string) (*AccWebConfigJson, error) {
 }
 
 func SetConfigVersion(settings *AccConfigFiles) {
-	settings.Configuration.ConfigVersion = configVersion
-	settings.Settings.ConfigVersion = configVersion
-	settings.Event.ConfigVersion = configVersion
-	settings.EventRules.ConfigVersion = configVersion
-	settings.Entrylist.ConfigVersion = configVersion
-	settings.Bop.ConfigVersion = configVersion
-	settings.AssistRules.ConfigVersion = configVersion
+	settings.Configuration.ConfigVersion = 1
+	settings.Settings.ConfigVersion = 1
+	settings.Event.ConfigVersion = 1
+	settings.EventRules.ConfigVersion = 1
+	settings.Entrylist.ConfigVersion = 1
+	settings.Bop.ConfigVersion = 1
+	settings.AssistRules.ConfigVersion = 1
 }
