@@ -26,7 +26,7 @@ export default {
     },
     methods: {
         setData(data) {
-            this.configVersion = data.configVersion;
+            this.configVersion = 1;
             this.track = data.track;
             this.carModel = data.carModel;
             this.ballastKg = data.ballastKg;

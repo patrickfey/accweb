@@ -28,7 +28,7 @@ export default {
     },
     methods: {
         setData(data) {
-            this.configVersion = data.configVersion;
+            this.configVersion = 1;
             let entries = data.entries;
 
             for(let i = 0; i < entries.length; i++) {

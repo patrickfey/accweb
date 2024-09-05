@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         setData(data) {
-            this.configVersion = data.configVersion;
+            this.configVersion = 1;
             this.stabilityControlLevelMax = data.stabilityControlLevelMax;
             this.disableAutosteer = data.disableAutosteer;
             this.disableAutoLights = data.disableAutoLights;

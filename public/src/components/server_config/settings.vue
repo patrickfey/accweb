@@ -95,7 +95,7 @@ export default {
     },
     methods: {
         setData(data) {
-            this.configVersion = data.configVersion;
+            this.configVersion = 1;
             this.password = data.password;
             this.passwordIsEmpty = data.passwordIsEmpty;
             this.adminPassword = data.adminPassword;

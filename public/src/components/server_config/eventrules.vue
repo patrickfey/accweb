@@ -48,7 +48,7 @@ export default {
     },
     methods: {
         setData(data) {
-            this.configVersion = data.configVersion;
+            this.configVersion = 1;
             this.qualifyStandingType = data.qualifyStandingType;
             this.pitWindowLengthSec = data.pitWindowLengthSec;
             this.driverStintTimeSec = data.driverStintTimeSec;

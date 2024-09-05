@@ -33,7 +33,7 @@ export default {
     },
     methods: {
         setData(data) {
-            this.configVersion = data.configVersion;
+            this.configVersion = 1;
             this.udpPort = data.udpPort;
             this.tcpPort = data.tcpPort;
             this.maxConnections = data.maxConnections;
