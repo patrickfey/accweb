@@ -48,7 +48,7 @@ export default {
         },
         getData() {
             return {
-                configVersion = this.configVersion;
+                configVersion: this.configVersion,
                 stabilityControlLevelMax: parseInt(this.stabilityControlLevelMax),
                 disableAutosteer: this.disableAutosteer ? 1 : 0,
                 disableAutoLights: this.disableAutoLights ? 1 : 0,

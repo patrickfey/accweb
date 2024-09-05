@@ -128,7 +128,7 @@ export default {
         },
         getData() {
             return {
-                configVersion = this.configVersion;
+                configVersion: this.configVersion,
                 password: this.password,
                 passwordIsEmpty: this.passwordIsEmpty,
                 adminPassword: this.adminPassword,

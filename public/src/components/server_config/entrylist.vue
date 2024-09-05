@@ -51,7 +51,7 @@ export default {
         },
         getData() {
             return {
-                configVersion = this.configVersion;
+                configVersion: this.configVersion,
                 entries: this.getEntryData(),
                 forceEntryList: this.forceEntryList ? 1 : 0
             };

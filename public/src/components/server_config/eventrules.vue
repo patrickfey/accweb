@@ -64,7 +64,7 @@ export default {
         },
         getData() {
             return {
-                configVersion = data.configVersion;
+                configVersion: data.configVersion,
                 qualifyStandingType: parseInt(this.qualifyStandingType),
                 pitWindowLengthSec: parseInt(this.pitWindowLengthSec),
                 driverStintTimeSec: parseInt(this.driverStintTimeSec),

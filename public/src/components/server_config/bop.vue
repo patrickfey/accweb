@@ -47,7 +47,7 @@ export default {
         },
     	getData() {
     		return {
-                configVersion = this.configVersion;
+                configVersion: this.configVersion,
 				track: this.track,
 				carModel: parseInt(this.carModel),
 				ballastKg: parseInt(this.ballastKg),
