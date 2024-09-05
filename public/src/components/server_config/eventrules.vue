@@ -1,5 +1,6 @@
 <template>
     <collapsible :title="$t('title')" with-import="true" import-filename="eventRules.json" @load="setData">
+        <field type="hidden" v-model="configVersion"></field>
         <selection :label="$t('qualifyStandingType_label')" :options="qualifyStandingTypes" v-model="qualifyStandingType"></selection>
         <div class="server-settings-container three-columns" style="margin-top: 1.0rem;">
             <field type="number" :label="$t('pitWindowLengthSec_label')" v-model="pitWindowLengthSec"></field>
@@ -27,6 +28,7 @@ export default {
     components: {collapsible, field, checkbox, selection},
     data() {
       return {
+        configVersion: 1,
         qualifyStandingTypes: [
           {value: 1, label: "Fastest Lap"},
           {value: 2, label: "Average Lap"}
@@ -47,6 +49,7 @@ export default {
     },
     methods: {
         setData(data) {
+            this.configVersion = data.configVersion;
             this.qualifyStandingType = data.qualifyStandingType;
             this.pitWindowLengthSec = data.pitWindowLengthSec;
             this.driverStintTimeSec = data.driverStintTimeSec;
@@ -62,6 +65,7 @@ export default {
         },
         getData() {
             return {
+                configVersion: this.configVersion,
                 qualifyStandingType: parseInt(this.qualifyStandingType),
                 pitWindowLengthSec: parseInt(this.pitWindowLengthSec),
                 driverStintTimeSec: parseInt(this.driverStintTimeSec),

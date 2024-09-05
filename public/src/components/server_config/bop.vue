@@ -4,8 +4,9 @@
             :key="entry.index"
             :entry="entry"
             v-on:remove="removeEntry"></entry>
+        <field type="hidden" v-model="configVersion"></field>
         <button v-on:click="addEntry">{{$t("add_entry_button")}}</button>
-        <button v-on:click="clearEntries">{{$t("clear_entries_button")}}</button>
+         <button v-on:click="clearEntries">{{$t("clear_entries_button")}}</button>
     </collapsible>
 </template>
 
@@ -19,12 +20,14 @@ export default {
     components: {collapsible, field, selection, entry},
     data() {
     	return {
+            configVersion: 1,
     		entryIndex: 0,
             entries: []
     	};
     },
     methods: {
         setData(data) {
+            this.configVersion = data.configVersion;
             this.track = data.track;
             this.carModel = data.carModel;
             this.ballastKg = data.ballastKg;
@@ -45,6 +48,7 @@ export default {
         },
     	getData() {
     		return {
+                configVersion: this.configVersion,
 				track: this.track,
 				carModel: parseInt(this.carModel),
 				ballastKg: parseInt(this.ballastKg),

@@ -1,5 +1,6 @@
 <template>
     <collapsible :title="$t('title')" with-import="true" import-filename="settings.json" @load="setDataFile">
+        <field type="hidden" v-model="configVersion"></field>
         <div class="pwd">
             <label v-if="!passwordIsEmpty"> {{ $t('password_label') }} </label>
             <input v-if="!passwordIsEmpty" class="form-input" type="password" v-model="password" v-bind:autocomplete="'new-password'" :disabled="passwordIsEmpty">
@@ -55,6 +56,7 @@ export default {
     components: {collapsible, field, selection, checkbox},
     data() {
         return {
+            configVersion:1,
             password: "",
             passwordIsEmpty: true,
             adminPassword: "",
@@ -94,6 +96,7 @@ export default {
     },
     methods: {
         setData(data) {
+            this.configVersion = data.configVersion;
             this.password = data.password;
             this.passwordIsEmpty = data.passwordIsEmpty;
             this.adminPassword = data.adminPassword;
@@ -126,6 +129,7 @@ export default {
         },
         getData() {
             return {
+                configVersion: this.configVersion,
                 password: this.password,
                 passwordIsEmpty: this.passwordIsEmpty,
                 adminPassword: this.adminPassword,

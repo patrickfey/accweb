@@ -1,5 +1,6 @@
 <template>
     <collapsible :title="$t('title')" with-import="true" import-filename="configuration.json" @load="setData">
+        <field type="hidden" v-model="configVersion"></field>
         <div class="server-settings-container two-columns">
             <field type="number" :label="$t('udp_label')" v-model="udpPort"></field>
             <field type="number" :label="$t('tcp_label')" v-model="tcpPort"></field>
@@ -22,6 +23,7 @@ export default {
     components: {collapsible, field, checkbox},
     data() {
         return {
+            configVersion: 1,
             udpPort: 9600,
             tcpPort: 9600,
             maxConnections: 10,
@@ -32,6 +34,7 @@ export default {
     },
     methods: {
         setData(data) {
+            this.configVersion = data.configVersion;
             this.udpPort = data.udpPort;
             this.tcpPort = data.tcpPort;
             this.maxConnections = data.maxConnections;
@@ -41,6 +44,7 @@ export default {
         },
         getData() {
             return {
+                configVersion: this.configVersion,
                 udpPort: parseInt(this.udpPort),
                 tcpPort: parseInt(this.tcpPort),
                 maxConnections: parseInt(this.maxConnections),

@@ -1,5 +1,6 @@
 <template>
     <collapsible :title="$t('title')" with-import="true" import-filename="assistRules.json" @load="setData">
+        <field type="hidden" v-model="configVersion"></field>
         <field type="number" :label="$t('stabilityControlLevelMax_label')" v-model="stabilityControlLevelMax"></field>
         <checkbox :label="$t('disableAutosteer_label')" v-model="disableAutosteer"></checkbox>
         <checkbox :label="$t('disableAutoLights_label')" v-model="disableAutoLights"></checkbox>
@@ -21,6 +22,7 @@ export default {
     components: {collapsible, field, checkbox},
     data() {
         return {
+            configVersion: 1,
             stabilityControlLevelMax: 100,
             disableAutosteer: false,
             disableAutoLights: false,
@@ -34,6 +36,7 @@ export default {
     },
     methods: {
         setData(data) {
+            this.configVersion = data.configVersion;
             this.stabilityControlLevelMax = data.stabilityControlLevelMax;
             this.disableAutosteer = data.disableAutosteer;
             this.disableAutoLights = data.disableAutoLights;
@@ -46,6 +49,7 @@ export default {
         },
         getData() {
             return {
+                configVersion: this.configVersion,
                 stabilityControlLevelMax: parseInt(this.stabilityControlLevelMax),
                 disableAutosteer: this.disableAutosteer ? 1 : 0,
                 disableAutoLights: this.disableAutoLights ? 1 : 0,

@@ -5,6 +5,7 @@
             :entry="entry"
             v-on:remove="removeEntry"></entry>
         <checkbox :label="$t('forceentrylist_label')" v-model="forceEntryList"></checkbox>
+        <field type="hidden" v-model="configVersion"></field>
         <button v-on:click="addEntry">{{$t("add_entry_button")}}</button>
         <button v-on:click="clearEntries">{{$t("clear_entries_button")}}</button>
     </collapsible>
@@ -20,6 +21,7 @@ export default {
     components: {collapsible, entry, field, checkbox},
     data() {
         return {
+            configVersion: 1,
             entryIndex: 0,
             entries: [],
             forceEntryList: 0
@@ -28,6 +30,7 @@ export default {
     methods: {
         setData(data) {
             let entries = data.entries;
+            this.configVersion = data.configVersion;
 
             for(let i = 0; i < entries.length; i++) {
                 this.entries.push({
@@ -49,6 +52,7 @@ export default {
         },
         getData() {
             return {
+                configVersion: this.configVersion,
                 entries: this.getEntryData(),
                 forceEntryList: this.forceEntryList ? 1 : 0
             };
