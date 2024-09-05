@@ -21,7 +21,6 @@ export default {
     components: {collapsible, field, checkbox},
     data() {
         return {
-            configVersion: 1,
             stabilityControlLevelMax: 100,
             disableAutosteer: false,
             disableAutoLights: false,
@@ -35,7 +34,6 @@ export default {
     },
     methods: {
         setData(data) {
-            this.configVersion = 1;
             this.stabilityControlLevelMax = data.stabilityControlLevelMax;
             this.disableAutosteer = data.disableAutosteer;
             this.disableAutoLights = data.disableAutoLights;
@@ -48,7 +46,6 @@ export default {
         },
         getData() {
             return {
-                configVersion: this.configVersion,
                 stabilityControlLevelMax: parseInt(this.stabilityControlLevelMax),
                 disableAutosteer: this.disableAutosteer ? 1 : 0,
                 disableAutoLights: this.disableAutoLights ? 1 : 0,

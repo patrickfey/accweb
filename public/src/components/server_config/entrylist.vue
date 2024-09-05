@@ -20,7 +20,6 @@ export default {
     components: {collapsible, entry, field, checkbox},
     data() {
         return {
-            configVersion: 1,
             entryIndex: 0,
             entries: [],
             forceEntryList: 0
@@ -28,7 +27,6 @@ export default {
     },
     methods: {
         setData(data) {
-            this.configVersion = 1;
             let entries = data.entries;
 
             for(let i = 0; i < entries.length; i++) {
@@ -51,7 +49,6 @@ export default {
         },
         getData() {
             return {
-                configVersion: this.configVersion,
                 entries: this.getEntryData(),
                 forceEntryList: this.forceEntryList ? 1 : 0
             };

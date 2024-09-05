@@ -22,7 +22,6 @@ export default {
     components: {collapsible, field, checkbox},
     data() {
         return {
-            configVersion: 1,
             udpPort: 9600,
             tcpPort: 9600,
             maxConnections: 10,
@@ -33,7 +32,6 @@ export default {
     },
     methods: {
         setData(data) {
-            this.configVersion = 1;
             this.udpPort = data.udpPort;
             this.tcpPort = data.tcpPort;
             this.maxConnections = data.maxConnections;
@@ -43,7 +41,6 @@ export default {
         },
         getData() {
             return {
-                configVersion: 1,
                 udpPort: parseInt(this.udpPort),
                 tcpPort: parseInt(this.tcpPort),
                 maxConnections: parseInt(this.maxConnections),

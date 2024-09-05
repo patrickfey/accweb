@@ -46,7 +46,6 @@ export default {
     components: {collapsible, field, selection, session, checkbox},
     data() {
             return {
-            configVersion: 1,
             tracks: _.orderBy(tracks, "label", "asc"),
             track: "barcelona",
             preRaceWaitingTimeSeconds: 15,
@@ -67,7 +66,6 @@ export default {
     },
     methods: {
         setData(data) {
-            this.configVersion = 1;
             this.track = data.track;
             this.preRaceWaitingTimeSeconds = data.preRaceWaitingTimeSeconds;
             this.sessionOverTimeSeconds = data.sessionOverTimeSeconds;
@@ -98,7 +96,6 @@ export default {
         },
         getData() {
             return {
-                configVersion: this.configVersion,
                 track: this.track,
                 preRaceWaitingTimeSeconds: parseInt(this.preRaceWaitingTimeSeconds),
                 sessionOverTimeSeconds: parseInt(this.sessionOverTimeSeconds),
