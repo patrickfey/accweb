@@ -27,6 +27,7 @@ export default {
     components: {collapsible, field, checkbox, selection},
     data() {
       return {
+        configVersion: 1,
         qualifyStandingTypes: [
           {value: 1, label: "Fastest Lap"},
           {value: 2, label: "Average Lap"}
@@ -47,6 +48,7 @@ export default {
     },
     methods: {
         setData(data) {
+            this.configVersion = data.configVersion;
             this.qualifyStandingType = data.qualifyStandingType;
             this.pitWindowLengthSec = data.pitWindowLengthSec;
             this.driverStintTimeSec = data.driverStintTimeSec;
@@ -62,6 +64,7 @@ export default {
         },
         getData() {
             return {
+                configVersion = data.configVersion;
                 qualifyStandingType: parseInt(this.qualifyStandingType),
                 pitWindowLengthSec: parseInt(this.pitWindowLengthSec),
                 driverStintTimeSec: parseInt(this.driverStintTimeSec),

@@ -19,12 +19,14 @@ export default {
     components: {collapsible, field, selection, entry},
     data() {
     	return {
+            configVersion: 1,
     		entryIndex: 0,
             entries: []
     	};
     },
     methods: {
         setData(data) {
+            this.configVersion = data.configVersion;
             this.track = data.track;
             this.carModel = data.carModel;
             this.ballastKg = data.ballastKg;
@@ -45,6 +47,7 @@ export default {
         },
     	getData() {
     		return {
+                configVersion = this.configVersion;
 				track: this.track,
 				carModel: parseInt(this.carModel),
 				ballastKg: parseInt(this.ballastKg),

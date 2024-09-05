@@ -55,6 +55,7 @@ export default {
     components: {collapsible, field, selection, checkbox},
     data() {
         return {
+            configVersion: 1,
             password: "",
             passwordIsEmpty: true,
             adminPassword: "",
@@ -94,6 +95,7 @@ export default {
     },
     methods: {
         setData(data) {
+            this.configVersion = data.configVersion;
             this.password = data.password;
             this.passwordIsEmpty = data.passwordIsEmpty;
             this.adminPassword = data.adminPassword;
@@ -126,6 +128,7 @@ export default {
         },
         getData() {
             return {
+                configVersion = this.configVersion;
                 password: this.password,
                 passwordIsEmpty: this.passwordIsEmpty,
                 adminPassword: this.adminPassword,
