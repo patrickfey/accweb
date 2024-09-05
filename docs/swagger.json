@@ -1247,6 +1247,9 @@
                 "ignorePrematureDisconnects": {
                     "type": "integer"
                 },
+                "isCPServer": {
+                    "type": "integer"
+                },
                 "isCrossplayServer": {
                     "type": "integer"
                 },
